@@ -1,0 +1,45 @@
+package com.manuflowers.paymentsculqi.network.authorization
+
+import com.manuflowers.paymentsculqi.network.CulqiApiManager
+import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+class AuthInteractorImpl : AuthInteractor {
+
+    override fun getToken(
+        carNumber: String,
+        ccv: String,
+        expirationMonth: String,
+        expirationYear: String,
+        email: String,
+        onAuthListener: AuthListener
+    ) {
+        val call = CulqiApiManager.culqiApi.getToken(
+            carNumber,
+            ccv,
+            expirationMonth,
+            expirationYear,
+            email
+        ).enqueue(object : Callback<GetTokenResponse> {
+
+            override fun onResponse(
+                call: Call<GetTokenResponse>,
+                response: Response<GetTokenResponse>
+            ) {
+                if (response.code() == 201 && response.body() != null) {
+                    // llenar aqui getTokenResponse
+
+                    onAuthListener.onSuccess(response.body()!!.id)
+                }
+            }
+
+            override fun onFailure(call: Call<GetTokenResponse>, t: Throwable) {
+                onAuthListener.onError(t.localizedMessage)
+            }
+
+        })
+    }
+
+}
