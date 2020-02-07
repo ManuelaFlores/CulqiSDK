@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.manuflowers.paymentsculqi.CulqiSdk
-import com.manuflowers.paymentsculqi.network.authorization.AuthListener
-import com.manuflowers.paymentsculqi.network.entities.request.Metadata
+import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             "2020",
             "fmanuela499@gmail.com",
             ""
-            object : AuthListener {
+            object : AuthCallback {
                 override fun onSuccess(token: String) {
                     Log.e("SUCCESS", token)
                 }

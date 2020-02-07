@@ -1,7 +1,7 @@
 package com.manuflowers.paymentsculqi
 
 import com.manuflowers.paymentsculqi.network.authorization.AuthInteractorImpl
-import com.manuflowers.paymentsculqi.network.authorization.AuthListener
+import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
 import com.manuflowers.paymentsculqi.network.entities.request.Metadata
 
 class CulqiSdk {
@@ -13,7 +13,7 @@ class CulqiSdk {
         expirationYear: String,
         email: String,
         metada: Metadata,
-        onAuthListener: AuthListener
+        onAuthCallback: AuthCallback
     ) {
         return AuthInteractorImpl().getToken(
             carNumber,
@@ -22,7 +22,7 @@ class CulqiSdk {
             expirationYear,
             email,
             metada,
-            onAuthListener
+            onAuthCallback
         )
     }
 }

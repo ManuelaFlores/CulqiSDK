@@ -1,6 +1,6 @@
 package com.manuflowers.paymentsculqi.network.authorization
 
-interface AuthListener {
+interface AuthCallback {
 
     fun onSuccess(token: String)
 

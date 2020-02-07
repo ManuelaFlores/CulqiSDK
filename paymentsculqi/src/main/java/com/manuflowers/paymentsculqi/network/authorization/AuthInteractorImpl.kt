@@ -18,7 +18,7 @@ class AuthInteractorImpl : AuthInteractor {
         expirationYear: String,
         email: String,
         metadata: Metadata,
-        onAuthListener: AuthListener
+        onAuthCallback: AuthCallback
     ) {
         val getTokenEntity = GetTokenEntity(
             carNumber,
@@ -40,12 +40,12 @@ class AuthInteractorImpl : AuthInteractor {
                 if (response.code() == 201 && response.body() != null) {
                     // llenar aqui getTokenResponse
                     print("FROM_SDK: ${response.body()}")
-                    onAuthListener.onSuccess(response.body()!!.id)
+                    onAuthCallback.onSuccess(response.body()!!.id)
                 }
             }
 
             override fun onFailure(call: Call<GetTokenResponse>, t: Throwable) {
-                onAuthListener.onError(t.localizedMessage)
+                onAuthCallback.onError(t.localizedMessage)
             }
 
         })

@@ -11,6 +11,6 @@ interface AuthInteractor {
         expirationYear: String,
         email: String,
         metadata: Metadata,
-        onAuthListener: AuthListener
+        onAuthCallback: AuthCallback
     )
 }
