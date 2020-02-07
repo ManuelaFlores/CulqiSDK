@@ -1,5 +1,7 @@
 package com.manuflowers.paymentsculqi.network.authorization
 
+import com.manuflowers.paymentsculqi.network.entities.request.Metadata
+
 interface AuthInteractor {
 
     fun getToken(
@@ -8,6 +10,7 @@ interface AuthInteractor {
         expirationMonth: String,
         expirationYear: String,
         email: String,
+        metadata: Metadata,
         onAuthListener: AuthListener
     )
 }

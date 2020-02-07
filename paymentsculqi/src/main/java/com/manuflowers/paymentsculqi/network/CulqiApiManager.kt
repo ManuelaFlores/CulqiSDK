@@ -21,7 +21,8 @@ class CulqiApiManager {
          *  it cannot be used n classes or methods
          * */
         @Volatile
-        var culqiApi: CulqiApi = getRetrofit("https://secure.culqi.com/v2/").create(CulqiApi::class.java)
+        var retrofitClient: CulqiApi =
+            getRetrofit("https://secure.culqi.com/v2/").create(CulqiApi::class.java)
 
         private fun getRetrofit(domain: String): Retrofit {
             val okHttpClient = OkHttpClient.Builder()

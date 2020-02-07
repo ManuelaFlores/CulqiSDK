@@ -5,5 +5,8 @@ data class GetTokenEntity(
     val cvv: String,
     val expiration_month: String,
     val expiration_year: String,
-    val email: String
+    val email: String,
+    val metadata: Metadata
 )
+
+data class Metadata(val account_holder_name : String)

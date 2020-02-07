@@ -4,7 +4,7 @@ data class GetTokenResponse(
     val `object`: String,
     val id: String,
     val type: String,
-    val creation_date: Int,
+    val creation_date: Any,
     val email: String,
     val card_number: String,
     val last_four: String,
