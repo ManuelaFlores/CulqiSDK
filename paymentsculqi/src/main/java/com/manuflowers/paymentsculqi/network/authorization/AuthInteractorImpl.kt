@@ -12,22 +12,9 @@ class AuthInteractorImpl : AuthInteractor {
 
 
     override fun getToken(
-        carNumber: String,
-        ccv: String,
-        expirationMonth: String,
-        expirationYear: String,
-        email: String,
-        metadata: Metadata,
+        getTokenEntity: GetTokenEntity,
         onAuthCallback: AuthCallback
     ) {
-        val getTokenEntity = GetTokenEntity(
-            carNumber,
-            ccv,
-            expirationMonth,
-            expirationYear,
-            email,
-            metadata
-        )
 
         CulqiApiManager.retrofitClient.getToken(
             getTokenEntity
@@ -40,7 +27,7 @@ class AuthInteractorImpl : AuthInteractor {
                 if (response.code() == 201 && response.body() != null) {
                     // llenar aqui getTokenResponse
                     print("FROM_SDK: ${response.body()}")
-                    onAuthCallback.onSuccess(response.body()!!.id)
+                    onAuthCallback.onSuccess(response.body()!!)
                 }
             }
 

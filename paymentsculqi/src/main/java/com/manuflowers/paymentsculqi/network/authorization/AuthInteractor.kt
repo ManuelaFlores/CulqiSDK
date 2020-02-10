@@ -1,16 +1,11 @@
 package com.manuflowers.paymentsculqi.network.authorization
 
-import com.manuflowers.paymentsculqi.network.entities.request.Metadata
+import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
 
 interface AuthInteractor {
 
     fun getToken(
-        carNumber: String,
-        ccv: String,
-        expirationMonth: String,
-        expirationYear: String,
-        email: String,
-        metadata: Metadata,
+        getTokenEntity: GetTokenEntity,
         onAuthCallback: AuthCallback
     )
 }

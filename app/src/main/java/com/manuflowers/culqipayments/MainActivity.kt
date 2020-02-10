@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import com.manuflowers.paymentsculqi.CulqiSdk
 import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
+import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
+import com.manuflowers.paymentsculqi.network.entities.request.Metadata
+import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,16 +19,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun generateToken() {
 
+        val metadata = Metadata
+            .Builder()
+            .accountHolderName("MANUELA FLORES")
+            .build()
+
+        val card = GetTokenEntity
+            .Builder()
+            .card(
+                cardNumber = "4111111111111111",
+                cvv = "123",
+                expirationMonth = "09",
+                expirationYear = "2020",
+                email = "fmanuela499@gmail.com",
+                metadata = metadata
+            ).build()
+
         CulqiSdk().generateToken(
-            "4111111111111111",
-            "123",
-            "09",
-            "2020",
-            "fmanuela499@gmail.com",
-            ""
+            card,
             object : AuthCallback {
-                override fun onSuccess(token: String) {
-                    Log.e("SUCCESS", token)
+                override fun onSuccess(getTokenResponse: GetTokenResponse) {
+                    Log.e("SUCCESS", "$getTokenResponse")
+
                 }
 
                 override fun onError(errorMessage: String) {
@@ -38,6 +53,14 @@ class MainActivity : AppCompatActivity() {
 }
 
 /**
+ *
+ * "4111111111111111",
+"123",
+"09",
+"2020",
+"fmanuela499@gmail.com",
+"MANUELA FLORES",
+ *
  * {
 "card_number": "4111111111111111",
 "cvv": "123",

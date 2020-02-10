@@ -2,26 +2,16 @@ package com.manuflowers.paymentsculqi
 
 import com.manuflowers.paymentsculqi.network.authorization.AuthInteractorImpl
 import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
-import com.manuflowers.paymentsculqi.network.entities.request.Metadata
+import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
 
 class CulqiSdk {
 
     fun generateToken(
-        carNumber: String,
-        ccv: String,
-        expirationMonth: String,
-        expirationYear: String,
-        email: String,
-        metada: Metadata,
+        getTokenEntity: GetTokenEntity,
         onAuthCallback: AuthCallback
     ) {
         return AuthInteractorImpl().getToken(
-            carNumber,
-            ccv,
-            expirationMonth,
-            expirationYear,
-            email,
-            metada,
+           getTokenEntity ,
             onAuthCallback
         )
     }

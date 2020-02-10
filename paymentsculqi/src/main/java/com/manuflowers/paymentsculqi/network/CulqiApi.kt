@@ -14,7 +14,7 @@ interface CulqiApi {
     )
     @POST("tokens")
     fun getToken(
-        @Body tokentRequestEntity: GetTokenEntity
+        @Body tokenRequestEntity: GetTokenEntity
     ): Call<GetTokenResponse>
 
 }
