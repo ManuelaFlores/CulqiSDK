@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CulqiPayments</string>
+    <string name="cards_holder_name">Nombre del Titular</string>
+    <string name="card_number">Número de tarjeta</string>
+    <string name="credit_debit_card_title">Tarjeta de crédito / débito</string>
+    <string name="expiration_date">Fecha de vencimiento</string>
+    <string name="cvv">CVV</string>
 </resources>

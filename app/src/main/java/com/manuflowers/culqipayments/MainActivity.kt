@@ -8,6 +8,7 @@ import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
 import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
 import com.manuflowers.paymentsculqi.network.entities.request.Metadata
 import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         generateToken()
+        prueba()
     }
 
     private fun generateToken() {
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity() {
 
             }
         )
+    }
+
+    private fun prueba() {
+        prueba.getCardNumberValue()
     }
 }
 
