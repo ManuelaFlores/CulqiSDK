@@ -3,4 +3,6 @@
 
     <declare-styleable name="CardFormLinearLayout" />
 
+    <declare-styleable name="CreditCardEditText" />
+
 </resources>

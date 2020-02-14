@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.manuflowers.culqipayments.CreditCardEditText
+            android:id="@+id/creditCardEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="numero de tarjeta" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="50dp"
+        android:layout_height="26dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_margin="8dp"
+        app:srcCompat="@drawable/ic_visa"
+        android:background="@android:color/white" />
+
+    </FrameLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -22,15 +22,16 @@ class CulqiApiManager {
          * */
         @Volatile
         var retrofitClient: CulqiApi =
-            getRetrofit("https://secure.culqi.com/v2/").create(CulqiApi::class.java)
+            getRetrofit().create(CulqiApi::class.java)
 
-        private fun getRetrofit(domain: String): Retrofit {
+        @JvmStatic
+        fun getRetrofit(): Retrofit {
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(getInterceptor())
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl(domain)
+                .baseUrl("https://secure.culqi.com/v2/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -38,7 +39,7 @@ class CulqiApiManager {
 
         private fun getInterceptor(): HttpLoggingInterceptor {
             val loggingInterceptor = HttpLoggingInterceptor()
-            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            loggingInterceptor.level = HttpLoggingInterceptor.Level.HEADERS
 
             return loggingInterceptor
         }

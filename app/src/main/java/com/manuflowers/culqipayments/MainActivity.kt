@@ -23,14 +23,15 @@ class MainActivity : AppCompatActivity() {
 
         val metadata = Metadata
             .Builder()
-            .accountHolderName("MANUELA FLORES")
+            .accountHolderName("MANUELA")
+            .accountHolderLastName("Flores")
             .build()
 
         val card = GetTokenEntity
             .Builder()
             .card(
                 cardNumber = "4111111111111111",
-                cvv = "123",
+                cvv = "23",
                 expirationMonth = "09",
                 expirationYear = "2020",
                 email = "fmanuela499@gmail.com",
@@ -42,19 +43,18 @@ class MainActivity : AppCompatActivity() {
             object : AuthCallback {
                 override fun onSuccess(getTokenResponse: GetTokenResponse) {
                     Log.e("SUCCESS", "$getTokenResponse")
-
                 }
 
                 override fun onError(errorMessage: String) {
                     Log.e("ERROR", errorMessage)
                 }
-
-            }
+            },
+            "pk_test_mho9TZvUHPATDCSi"
         )
     }
 
     private fun prueba() {
-        prueba.getCardNumberValue()
+
     }
 }
 

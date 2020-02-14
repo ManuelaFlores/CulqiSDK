@@ -6,6 +6,7 @@ interface AuthInteractor {
 
     fun getToken(
         getTokenEntity: GetTokenEntity,
-        onAuthCallback: AuthCallback
+        onAuthCallback: AuthCallback,
+        privateKey: String
     )
 }

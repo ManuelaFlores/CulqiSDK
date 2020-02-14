@@ -8,11 +8,13 @@ class CulqiSdk {
 
     fun generateToken(
         getTokenEntity: GetTokenEntity,
-        onAuthCallback: AuthCallback
+        onAuthCallback: AuthCallback,
+        privateKey: String
     ) {
         return AuthInteractorImpl().getToken(
-           getTokenEntity ,
-            onAuthCallback
+            getTokenEntity,
+            onAuthCallback,
+            privateKey
         )
     }
 }
