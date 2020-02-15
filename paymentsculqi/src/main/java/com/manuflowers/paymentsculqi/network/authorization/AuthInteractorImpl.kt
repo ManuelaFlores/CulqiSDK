@@ -1,7 +1,6 @@
 package com.manuflowers.paymentsculqi.network.authorization
 
 import com.manuflowers.paymentsculqi.network.CulqiApiManager
-import com.manuflowers.paymentsculqi.network.entities.request.ErrorBody
 import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
 import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
 import com.manuflowers.paymentsculqi.utils.ErrorUtils
@@ -27,18 +26,17 @@ class AuthInteractorImpl : AuthInteractor {
                 call: Call<GetTokenResponse>,
                 response: Response<GetTokenResponse>
             ) {
-                if (response.code() == 201 && response.body() != null) {
+                if (response.code() == 201 && response.errorBody() != null) {
                     onAuthCallback.onSuccess(response.body()!!)
                 } else {
-                   val prueba = response.errorBody().toString()
-                    val prueba2 = ErrorBody(response.errorBody()!!.source().readByteArray()[0],response.errorBody()!!.contentLength())
-                    ErrorUtils.parseError(response)
-                    onAuthCallback.onError(prueba2.content.toString())
+                   val userMessage =  ErrorUtils().parseError(response).merchantMessage
+                    print(userMessage)
+                    //onAuthCallback.onError(userMessage)
                 }
             }
 
             override fun onFailure(call: Call<GetTokenResponse>, t: Throwable) {
-                onAuthCallback.onError(t.localizedMessage)
+                onAuthCallback.onError("Método de pago no disponible en estos momentos")
             }
 
         })

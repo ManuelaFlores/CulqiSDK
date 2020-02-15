@@ -39,7 +39,7 @@ class CulqiApiManager {
 
         private fun getInterceptor(): HttpLoggingInterceptor {
             val loggingInterceptor = HttpLoggingInterceptor()
-            loggingInterceptor.level = HttpLoggingInterceptor.Level.HEADERS
+            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
             return loggingInterceptor
         }

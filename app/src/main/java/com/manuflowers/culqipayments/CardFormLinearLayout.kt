@@ -122,9 +122,4 @@ class CardFormLinearLayout(context: Context, attributeSet: AttributeSet) :
         }
     }
 
-    private fun setupHolderCardName() {
-
-    }
-
-
 }

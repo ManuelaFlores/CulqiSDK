@@ -1,29 +1,30 @@
 package com.manuflowers.paymentsculqi.utils
 
 import com.manuflowers.paymentsculqi.network.CulqiApiManager
-import com.manuflowers.paymentsculqi.network.entities.request.ApiError
+import com.manuflowers.paymentsculqi.network.entities.response.ErrorModel
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.Response
 import java.io.IOException
 
+class ErrorUtils {
 
-object ErrorUtils {
+        fun parseError(response: Response<*>): ErrorModel {
+            val converter: Converter<ResponseBody, ErrorModel> = CulqiApiManager.getRetrofit().responseBodyConverter(
+                ErrorModel::class.java,
+                arrayOfNulls<Annotation>(0)
+            )
 
-    fun parseError(response: Response<*>): ApiError {
-        val converter: Converter<ResponseBody, ApiError> = CulqiApiManager.getRetrofit().responseBodyConverter(
-            ApiError::class.java,
-            arrayOfNulls<Annotation>(0)
-        )
+            val error: ErrorModel
 
-        val error: ApiError
+            try {
+                error = converter.convert(response.errorBody()!!)!!
+            } catch (e: IOException) {
+                print(e)
+                return ErrorModel("","","","","","Error al obtener token")
+            }
 
-        try {
-            error = converter.convert(response.errorBody()!!)!!
-        } catch (e: IOException) {
-            return ApiError()
+            return error
         }
 
-        return error
-    }
 }
