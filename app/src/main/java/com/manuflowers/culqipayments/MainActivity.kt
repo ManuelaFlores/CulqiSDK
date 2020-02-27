@@ -8,7 +8,6 @@ import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
 import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
 import com.manuflowers.paymentsculqi.network.entities.request.Metadata
 import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,19 +18,20 @@ class MainActivity : AppCompatActivity() {
         prueba()
     }
 
+    //4557880527876407
     private fun generateToken() {
 
         val metadata = Metadata
             .Builder()
-            .accountHolderName("MANUELA")
-            .accountHolderLastName("Flores")
+            .accountHolderName("manuel")
+            .accountHolderLastName("ggggg")
             .build()
 
         val card = GetTokenEntity
             .Builder()
             .card(
                 cardNumber = "4111111111111111",
-                cvv = "23",
+                cvv = "444",
                 expirationMonth = "09",
                 expirationYear = "2020",
                 email = "fmanuela499@gmail.com",
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     Log.e("ERROR", errorMessage)
                 }
             },
-            "pk_test_mho9TZvUHPATDCSi"
+            "pk_test_BcnPaY5POsvYI09T"
         )
     }
 

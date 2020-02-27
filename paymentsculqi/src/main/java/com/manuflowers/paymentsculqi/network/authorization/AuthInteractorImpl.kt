@@ -26,12 +26,11 @@ class AuthInteractorImpl : AuthInteractor {
                 call: Call<GetTokenResponse>,
                 response: Response<GetTokenResponse>
             ) {
-                if (response.code() == 201 && response.errorBody() != null) {
+                if (response.code() == 201 && response.body() != null) {
                     onAuthCallback.onSuccess(response.body()!!)
                 } else {
-                   val userMessage =  ErrorUtils().parseError(response).merchantMessage
-                    print(userMessage)
-                    //onAuthCallback.onError(userMessage)
+                   val userMessage =  ErrorUtils().parseError(response).userMessage
+                    onAuthCallback.onError(userMessage)
                 }
             }
 
