@@ -75,3 +75,19 @@ class MainActivity : AppCompatActivity() {
 "email": ""
 }
  * */
+
+/***
+ * {
+ * "object":"iin",
+ * "bin":"411111",
+ * "card_brand":"Visa",
+ * "card_type":"credito",
+ * "card_category":"Clásica",
+ * "issuer":{"name":"BBVA",
+ * "country":"PERU",
+ * "country_code":"PE",
+ * "website":null,
+ * "phone_number":null
+ * },
+ * "installments_allowed":[2,4,6,8,10,12,3,5,7,9,24,48]}
+ * */
