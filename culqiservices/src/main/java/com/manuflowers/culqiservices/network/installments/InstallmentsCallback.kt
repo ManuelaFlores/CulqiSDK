@@ -1,6 +1,6 @@
-package com.manuflowers.paymentsculqi.network.authorization
+package com.manuflowers.culqiservices.network.installments
 
-import com.manuflowers.paymentsculqi.network.entities.response.GetInstallmentsResponse
+import com.manuflowers.culqiservices.network.entities.response.GetInstallmentsResponse
 
 interface InstallmentsCallback {
 

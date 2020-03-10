@@ -1,2 +1,3 @@
 include ':app', ':paymentsculqi'
 rootProject.name='CulqiPayments'
+include ':culqiservices'

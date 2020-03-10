@@ -1,9 +1,9 @@
-package com.manuflowers.paymentsculqi.network.authorization
+package com.manuflowers.culqiservices.network.authorization
 
-import com.manuflowers.paymentsculqi.network.CulqiApiManager
-import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
-import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
-import com.manuflowers.paymentsculqi.utils.GetTokenErrorUtil
+import com.manuflowers.culqiservices.network.CulqiApiManager
+import com.manuflowers.culqiservices.network.entities.request.GetTokenEntity
+import com.manuflowers.culqiservices.network.entities.response.GetTokenResponse
+import com.manuflowers.culqiservices.utils.GetTokenErrorUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

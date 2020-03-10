@@ -1,4 +1,4 @@
-package com.manuflowers.paymentsculqi.network.entities.response
+package com.manuflowers.culqiservices.network.entities.response
 
 data class GetInstallmentsResponse(
 

@@ -1,7 +1,7 @@
-package com.manuflowers.paymentsculqi.network
+package com.manuflowers.culqiservices.network
 
-import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
-import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
+import com.manuflowers.culqiservices.network.entities.request.GetTokenEntity
+import com.manuflowers.culqiservices.network.entities.response.GetTokenResponse
 import retrofit2.Call
 import retrofit2.http.*
 

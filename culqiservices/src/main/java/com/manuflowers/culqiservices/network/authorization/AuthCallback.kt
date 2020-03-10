@@ -1,6 +1,6 @@
-package com.manuflowers.paymentsculqi.network.authorization
+package com.manuflowers.culqiservices.network.authorization
 
-import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
+import com.manuflowers.culqiservices.network.entities.response.GetTokenResponse
 
 interface AuthCallback {
 

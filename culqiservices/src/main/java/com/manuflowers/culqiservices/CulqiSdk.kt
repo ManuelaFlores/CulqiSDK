@@ -1,11 +1,11 @@
-package com.manuflowers.paymentsculqi
+package com.manuflowers.culqiservices
 
-import com.manuflowers.paymentsculqi.network.authorization.AuthInteractorImpl
-import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
-import com.manuflowers.paymentsculqi.network.entities.request.GetInstallmentsEntity
-import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
-import com.manuflowers.paymentsculqi.network.installments.InstallmentsCallback
-import com.manuflowers.paymentsculqi.network.installments.InstallmentsInteractorImpl
+import com.manuflowers.culqiservices.network.authorization.AuthInteractorImpl
+import com.manuflowers.culqiservices.network.authorization.AuthCallback
+import com.manuflowers.culqiservices.network.entities.request.GetInstallmentsEntity
+import com.manuflowers.culqiservices.network.entities.request.GetTokenEntity
+import com.manuflowers.culqiservices.network.installments.InstallmentsCallback
+import com.manuflowers.culqiservices.network.installments.InstallmentsInteractorImpl
 
 class CulqiSdk {
 

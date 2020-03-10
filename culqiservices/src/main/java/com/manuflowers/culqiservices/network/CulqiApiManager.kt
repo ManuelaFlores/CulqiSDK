@@ -1,9 +1,11 @@
-package com.manuflowers.paymentsculqi.network
+package com.manuflowers.culqiservices.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.manuflowers.culqiservices.network.CulqiApi
+import com.manuflowers.culqiservices.network.SecureCulqiApi
 
 /**
  * @Class CulqiApiManager is in charge of manage every instance related with retrofit client
@@ -25,7 +27,8 @@ class CulqiApiManager {
             getRetrofit("https://secure.culqi.com/v2/").create(CulqiApi::class.java)
 
         @Volatile
-        var culqiClient: SecureCulqiApi = getRetrofit("https://api.culqi.com/v2/").create(SecureCulqiApi::class.java)
+        var culqiClient: SecureCulqiApi = getRetrofit("https://api.culqi.com/v2/").create(
+            SecureCulqiApi::class.java)
 
 
 
