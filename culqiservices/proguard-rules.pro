@@ -11,6 +11,22 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-dontnote retrofit2.Platform
+# Platform used when running on Java 8 VMs. Will not be used at runtime.
+-dontwarn retrofit2.Platform$Java8
+# Retain generic type information for use by reflection by converters and adapters.
+-keepattributes Signature
+# Retain declared checked exceptions for use by a Proxy instance.
+-keepattributes Exceptions
+
+-keep class com.manuflowers.culqiservices.network.entities.request.GetInstallmentsEntity.** { *; }
+
+-keep class com.manuflowers.culqiservices.network.entities.response.InstallmentsErrorModel.** { *; }
+-keep class com.manuflowers.culqiservices.network.entities.response.GetInstallmentsResponse.** { *; }
+
+
+-keep class com.manuflowers.culqiservices.CulqiSdk** { *; }
+-keep class com.manuflowers.culqiservices.network.installments.InstallmentsCallback** { *; }
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

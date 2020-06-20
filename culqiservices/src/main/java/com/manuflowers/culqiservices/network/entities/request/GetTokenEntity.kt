@@ -1,11 +1,19 @@
 package com.manuflowers.culqiservices.network.entities.request
 
+import com.google.gson.annotations.SerializedName
+
 data class GetTokenEntity(
+    @SerializedName("card_number")
     val card_number: String,
+    @SerializedName("cvv")
     val cvv: String,
+    @SerializedName("expiration_month")
     val expiration_month: String,
+    @SerializedName("expiration_year")
     val expiration_year: String,
+    @SerializedName("email")
     val email: String,
+    @SerializedName("metadata")
     val metadata: Metadata
 ) {
     private constructor(builder: Builder) : this(
@@ -56,7 +64,11 @@ data class GetTokenEntity(
     }
 }
 
-data class Metadata(val account_holder_firstname: String, val account_holder_lastname: String) {
+data class Metadata(
+    @SerializedName("account_holder_firstname")
+    val account_holder_firstname: String,
+    @SerializedName("account_holder_lastname")
+    val account_holder_lastname: String) {
 
     private constructor(builder: Builder) : this(
         builder.accountHolderName,

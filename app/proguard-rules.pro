@@ -11,6 +11,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+# Platform calls Class.forName on types which do not exist on Android to determine platform.
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

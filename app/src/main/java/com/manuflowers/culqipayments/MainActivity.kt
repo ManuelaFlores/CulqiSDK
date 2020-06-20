@@ -3,14 +3,14 @@ package com.manuflowers.culqipayments
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.manuflowers.paymentsculqi.CulqiSdk
-import com.manuflowers.paymentsculqi.network.authorization.AuthCallback
-import com.manuflowers.paymentsculqi.network.entities.request.GetInstallmentsEntity
-import com.manuflowers.paymentsculqi.network.entities.request.GetTokenEntity
-import com.manuflowers.paymentsculqi.network.entities.request.Metadata
-import com.manuflowers.paymentsculqi.network.entities.response.GetInstallmentsResponse
-import com.manuflowers.paymentsculqi.network.entities.response.GetTokenResponse
-import com.manuflowers.paymentsculqi.network.installments.InstallmentsCallback
+import com.manuflowers.culqiservices.CulqiSdk
+import com.manuflowers.culqiservices.network.authorization.AuthCallback
+import com.manuflowers.culqiservices.network.entities.request.GetInstallmentsEntity
+import com.manuflowers.culqiservices.network.entities.request.GetTokenEntity
+import com.manuflowers.culqiservices.network.entities.request.Metadata
+import com.manuflowers.culqiservices.network.entities.response.GetInstallmentsResponse
+import com.manuflowers.culqiservices.network.entities.response.GetTokenResponse
+import com.manuflowers.culqiservices.network.installments.InstallmentsCallback
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,20 +18,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         generateToken()
-        //getInstallments()
+        getInstallments()
     }
-
-    //4557880527876407
 
     private fun getInstallments() {
         val installmentsEntity = GetInstallmentsEntity
             .Builder()
             .bin("411111")
             .build()
-        //pk_test_BcnPaY5POsvYI09T
 
         CulqiSdk().getInstallments(
-            "pk_test_BcnPaY5POsvYI09T",
+            "TOKEN",
             installmentsEntity,
             object : InstallmentsCallback {
                 override fun onSuccess(getInstallmentsResponse: GetInstallmentsResponse) {
@@ -54,18 +51,18 @@ class MainActivity : AppCompatActivity() {
 
         val metadata = Metadata
             .Builder()
-            .accountHolderName("manuel")
+            .accountHolderName("prueba")
             .accountHolderLastName("ggggg")
             .build()
 
         val card = GetTokenEntity
             .Builder()
             .card(
-                cardNumber = "36000200000006",
-                cvv = "230",
-                expirationMonth = "01",
-                expirationYear = "2020",
-                email = "fmanuela499@gmail.com",
+                cardNumber = "4111111111111111",
+                cvv = "123",
+                expirationMonth = "09",
+                expirationYear = "2025",
+                email = "prueba@gmail.com",
                 metadata = metadata
             ).build()
 

@@ -2,7 +2,11 @@ package com.manuflowers.culqiservices.network.authorization
 
 import com.manuflowers.culqiservices.network.CulqiApiManager
 import com.manuflowers.culqiservices.network.entities.request.GetTokenEntity
+import com.manuflowers.culqiservices.network.entities.request.Metadata
+import com.manuflowers.culqiservices.network.entities.response.Client
 import com.manuflowers.culqiservices.network.entities.response.GetTokenResponse
+import com.manuflowers.culqiservices.network.entities.response.Iin
+import com.manuflowers.culqiservices.network.entities.response.Issuer
 import com.manuflowers.culqiservices.utils.GetTokenErrorUtil
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,11 +30,44 @@ class AuthInteractorImpl : AuthInteractor {
                 call: Call<GetTokenResponse>,
                 response: Response<GetTokenResponse>
             ) {
-                if (response.code() == 201 && response.body() != null) {
-                    onAuthCallback.onSuccess(response.body()!!)
-                } else {
-                    val userMessage = GetTokenErrorUtil().parseError(response).userMessage
-                    onAuthCallback.onFailure(userMessage ?: "Por favor, verifique que los detalles de pago sean correctos, o seleccione un método de pago distinto")
+                val messageError =
+                    "Por favor verifique que los detalles de pago sean correctos, o seleccione un método de pago distinto"
+
+                when (response.code()) {
+                    201 -> {
+                        if (response.body() != null) {
+                            onAuthCallback.onSuccess(
+                                response.body() ?: GetTokenResponse(
+                                    "",
+                                    "",
+                                    "",
+                                    0,
+                                    "",
+                                    "",
+                                    "",
+                                    false,
+                                    Iin(
+                                        "", "", "", "", "", Issuer("", "", "", "", ""),
+                                        listOf()
+                                    ),
+                                    Client("", "", "", "", "", ""),
+                                    Metadata("", "")
+                                )
+                            )
+                        }
+                    }
+                    400,401, 402, 403, 404, 422 -> {
+                        val userMessage =
+                            GetTokenErrorUtil().parseError(response).userMessage
+                        onAuthCallback.onFailure(userMessage ?: "Por favor, verifique que los detalles de pago sean correctos, o seleccione un método de pago distinto")
+                    }
+                    500, 503, 504 -> {
+                        //Error en los servidores de culqi y la peticion no pudo ser procesada
+                        onAuthCallback.onFailure(messageError)
+                    }
+                    else -> {
+                        onAuthCallback.onFailure(messageError)
+                    }
                 }
             }
 
