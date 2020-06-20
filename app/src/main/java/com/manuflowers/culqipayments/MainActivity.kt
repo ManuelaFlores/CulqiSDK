@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             ).build()
 
         CulqiSdk().generateToken(
-            "pk_test_BcnPaY5POsvYI09T",
+            "TOKEN",
             card,
             object : AuthCallback {
                 override fun onSuccess(getTokenResponse: GetTokenResponse) {
@@ -92,8 +92,8 @@ class MainActivity : AppCompatActivity() {
 "123",
 "09",
 "2020",
-"fmanuela499@gmail.com",
-"MANUELA FLORES",
+"prueba@gmail.com",
+"prueba",
  *
  * {
 "card_number": "4111111111111111",
